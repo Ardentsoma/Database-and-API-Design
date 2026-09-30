@@ -146,7 +146,8 @@ Identifier: the pair of the two IDs together (composite primary key).
 
 ## Diagram
 
-![alt text](image.png)
+<img width="3983" height="2705" alt="image" src="https://github.com/user-attachments/assets/001cb950-fcc7-4809-a85b-4bee45c82b61" />
+
 
 # Part 3: Design decisions
 
@@ -203,7 +204,8 @@ Statuses: `requested`, `confirmed`, `declined`, `expired`, `cancelled`, `complet
 - `requested` to `expired` before `expires_at`.
 
 **State machine image**
-![alt text](image-1.png)
+<img width="3078" height="3235" alt="image" src="https://github.com/user-attachments/assets/cf20d175-e5c6-4487-89e9-0f055373d1fe" />
+
 
 **What enforces it.** A `CHECK` constraint sees only the row's new values, so it cannot know the old status. A `BEFORE UPDATE` trigger on `bookings` compares the old and new status, rejects any pair not in the allowed table, and applies the date conditions. A `CHECK (status IN (...))` restricts the column to the six valid values. The application validates too, but the trigger is what makes the rules unbreakable.
 
@@ -814,11 +816,13 @@ data: {"bookingId":"7e3a9f10-5c2b-4d88-a1f4-9b6c0d2e5a33","status":"confirmed","
 ## Picture Evidence
 
 **1. Index search** 
-![alt text](image-4.png)
-![alt text](image-2.png)
+<img width="2096" height="960" alt="image" src="https://github.com/user-attachments/assets/02d051ca-1d86-4e15-a838-a7617c11847e" />
+<img width="2031" height="628" alt="image" src="https://github.com/user-attachments/assets/8dd41972-948c-4627-bcf8-c577424c090d" />
+
 
 **2. Violations**
 
 Tested some violations and the screenshots are below;
-![alt text](9808ADE0-2F89-4846-8B37-F0179D0E4AAC_1_201_a.jpeg)
-# Database-and-API-Design
+<img width="1583" height="1101" alt="image" src="https://github.com/user-attachments/assets/1a59e702-1e12-4bfe-86b2-ecb95e590ea6" />
+
+
